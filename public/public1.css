@@ -1,0 +1,85 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.container {
+  margin: 70px 70px;
+  display: grid;
+  grid-template-columns: 1fr 6fr 1fr;
+  grid-template-rows: 50px 100px 350px 50px;
+  position: relative;
+}
+
+.header {
+  background-color: rgba(13, 13, 13, 0.923);
+  /* height: 100px; */
+  /* width: 100px; */
+  grid-column: 1/-1;
+  grid-row: 2/3;
+}
+
+.line1 {
+  border-right: 15px solid rgba(13, 13, 13, 0.923);
+  grid-column: 1/2;
+  grid-row: 3/-1;
+}
+.line2 {
+  border-right: 15px solid rgba(13, 13, 13, 0.923);
+  grid-column: 1/2;
+  grid-row: 1/2;
+}
+#editForm,
+#displayForm {
+  grid-column: 2/3;
+  grid-row: 3/4;
+  width: 100vh;
+  height: 250px;
+}
+
+.btnE,
+.btnZ {
+  top: 92%;
+  left: 45%;
+}
+.btnD {
+  left: 100%;
+  top: 100%;
+  transform: translate(-100%, -100%);
+}
+
+.btnW {
+  left: 100%;
+  bottom: 100%;
+  transform: translate(-100%, 100%);
+}
+
+.text {
+  padding: 4px;
+  font-size: 32px;
+  font-family: Work Sans, sans-serif;
+  margin: 26px;
+  width: 95vh;
+  height: 230px;
+  resize: none;
+  overflow: auto;
+  overflow-x: hidden;
+  overflow-wrap: break-word; /* Przechodzenie do kolejnej lini */
+}
+
+form button {
+  position: absolute;
+  font-family: Work Sans, sans-serif;
+  height: 40px;
+  width: 100px;
+  background-color: rgba(13, 13, 13, 0.923);
+  color: #fff;
+  border-radius: 10px;
+}

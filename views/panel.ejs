@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My App</title>
+    <link rel="stylesheet" href="public1.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Agbalumo&family=Inter:wght@400;500;700;800;900&family=Rubik:wght@400;500;700&family=Work+Sans:ital,wght@0,400;0,500;1,600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Witaj, <%= login %></h1>
+      <header class="header"></header>
+      <div class="line1"></div>
+      <div class="line2"></div>
+
+      <form action="/delete" method="get" class="delete">
+        <input type="hidden" name="login" value="<%= login %>" />
+        <button class="btnD" type="submit">Delete account</button>
+      </form>
+
+      <!-- Formularz edycji (domyślnie nieaktywny) -->
+      <form action="/text" method="post" id="editForm" style="opacity: 0">
+        <textarea type="text" name="text" class="text" required></textarea>
+        <input type="hidden" name="login" value="<%= login %>" />
+        <button class="btnZ" type="submit">Zapisz</button>
+      </form>
+
+      <!-- Formularz wyświetlania (domyślnie aktywny) -->
+      <form action="/text" method="post" id="displayForm">
+        <div class="text"><%= text %></div>
+        <button class="btnE" type="button" onclick="addDisplayE()">
+          Edytuj tekst
+        </button>
+      </form>
+
+      <form action="/wyloguj" method="post">
+        <button class="btnW" type="submit">Wyloguj</button>
+      </form>
+    </div>
+
+    <script>
+      const addDisplayE = function () {
+        const editForm = document.getElementById("editForm");
+        const displayForm = document.getElementById("displayForm");
+
+        // Ustaw przezroczystość dla formularza edycji
+        editForm.style.opacity = 100;
+        editForm.style.pointerEvents = "auto"; // Wyłącz interakcję z formularzem edycji
+
+        // Ustaw przezroczystość dla formularza wyświetlania
+        displayForm.style.opacity = 0;
+        displayForm.style.pointerEvents = "none"; // Włącz interakcję z formularzem wyświetlani
+      };
+    </script>
+  </body>
+</html>

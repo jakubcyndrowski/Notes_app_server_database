@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My App</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Agbalumo&family=Inter:wght@400;500;700;800;900&family=Rubik:wght@400;500;700&family=Work+Sans:ital,wght@0,400;0,500;1,600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <img src="phone.png" alt="personWithPhone" width="600" height="600" />
+    <div class="container">
+      <form action="/login" method="post">
+        <input type="text" placeholder="login" name="login" />
+        <input type="password" placeholder="password" name="password" />
+        <button type="submit" class="btn--zal">Zaloguj</button>
+      </form>
+      <form action="/register" method="get">
+        <button type="submit" class="btn--acount">Create Account</button>
+      </form>
+      <!-- <a href="/register" class="btn--acount">create account</a> -->
+    </div>
+  </body>
+</html>

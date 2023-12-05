@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My App</title>
+    <link rel="stylesheet" href="public2.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Agbalumo&family=Inter:wght@400;500;700;800;900&family=Rubik:wght@400;500;700&family=Work+Sans:ital,wght@0,400;0,500;1,600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Witaj, <%= login %></h1>
+      <header class="header"></header>
+      <div class="line1"></div>
+      <div class="line2"></div>
+
+      <!-- Formularz edycji (domyślnie nieaktywny) -->
+      <form action="/text" method="post" id="editForm" style="opacity: 0">
+        <textarea type="text" name="text" class="text" required></textarea>
+        <input type="hidden" name="login" value="<%= login %>" />
+        <button class="btnZ" type="submit">Zapisz</button>
+      </form>
+
+      <!-- Formularz wyświetlania (domyślnie aktywny) -->
+      <form action="/text" method="post" id="displayForm">
+        <div class="text">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum fugit
+          repellendus ea ipsum provident, vel placeat aspernatur, voluptatem non
+          suscipit praesentium ut, est id ipsam impedit quas asperiores quisquam
+          deserunt?
+        </div>
+        <button class="btnE" type="button" onclick="addDisplayE()">
+          Edytuj tekst
+        </button>
+      </form>
+
+      <form action="/wyloguj" method="post">
+        <button class="btnW" type="submit">Wyloguj</button>
+      </form>
+    </div>
+    <form action="/delete" method="post" id="deleteForm" class="delete">
+      <h2>Podaj hasło aby usunać konto <%= login %></h2>
+      <input
+        type="hidden"
+        placeholder="login"
+        name="login"
+        value="<%= login %>"
+      />
+      <input
+        type="password"
+        placeholder="password"
+        name="password"
+        class="delete-input"
+      />
+      <!-- Dzięki temu że mamy type="passsword "  przeglądraka automatycznie zmienia hasło na kropki i dodaje opcje p[odglądu hasła] -->
+      <button class="delete-btn" type="submit">Delete account</button>
+    </form>
+
+    <script>
+      document.addEventListener("click", function (event) {
+        const deleteForm = document.getElementById("deleteForm");
+        const currentPath = window.location.pathname;
+
+        if (currentPath === "/delete" && !deleteForm.contains(event.target)) {
+          window.location.href = "/panel?login=<%= login %>";
+        }
+      });
+
+      const addDisplayE = function () {
+        const editForm = document.getElementById("editForm");
+        const displayForm = document.getElementById("displayForm");
+
+        // Ustaw przezroczystość dla formularza edycji
+        editForm.style.opacity = 100;
+        editForm.style.pointerEvents = "auto"; // Wyłącz interakcję z formularzem edycji
+
+        // Ustaw przezroczystość dla formularza wyświetlania
+        displayForm.style.opacity = 0;
+        displayForm.style.pointerEvents = "none"; // Włącz interakcję z formularzem wyświetlani
+      };
+    </script>
+  </body>
+</html>
