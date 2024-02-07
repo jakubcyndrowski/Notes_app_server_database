@@ -1,12 +1,12 @@
 {
-  "name": "lovesport",
+  "name": "noteapp",
   "version": "1.0.0",
   "description": "",
   "type": "module",
-  "main": "app.js",
+  "default": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
+    "build": "parcel build server.js --dist-dir ./dist",
     "dev": "npx nodemon server.js"
   },
   "keywords": [],
@@ -18,9 +18,25 @@
     "ejs": "^3.1.9",
     "express": "^4.18.2",
     "express-session": "^1.17.3",
-    "mysql2": "^3.6.5"
+    "mysql2": "^3.6.5",
+    "parcel": "^2.11.0"
   },
   "devDependencies": {
-    "nodemon": "^3.0.1"
+    "assert": "^2.1.0",
+    "browserify-zlib": "^0.2.0",
+    "buffer": "^6.0.3",
+    "crypto-browserify": "^3.12.0",
+    "events": "^3.3.0",
+    "nodemon": "^3.0.1",
+    "os-browserify": "^0.3.0",
+    "path-browserify": "^1.0.1",
+    "process": "^0.11.10",
+    "querystring-es3": "^0.2.1",
+    "stream-browserify": "^3.0.0",
+    "stream-http": "^3.2.0",
+    "string_decoder": "^1.3.0",
+    "timers-browserify": "^2.0.12",
+    "url": "^0.11.3",
+    "util": "^0.12.5"
   }
 }
